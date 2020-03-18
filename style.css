@@ -1,0 +1,34 @@
+body {
+  background-image: url(images/background2.png);
+  font-family: "PT Serif", serif;
+}
+header {
+  background-image: url(images/square.png);
+  width: 100%;
+  height: 175px;
+  font-size: 60px;
+  text-align: center;
+  color: white;
+  font-family: "PT Serif", serif;
+  padding-top: 40px;
+  margin-bottom: 50px;
+  margin-top: 20px;
+}
+table {
+  border-radius: 10px;
+  font-family: "PT Serif", serif;
+}
+label {
+  color: white;
+  font-size: 20px;
+  font-family: "PT Serif", serif;
+}
+#addTrain {
+  background-color: slategrey;
+  color: white;
+  font-size: 20px;
+  width: 200px;
+  height: 50px;
+  border-radius: 10px;
+  font-family: "PT Serif", serif;
+}
