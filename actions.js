@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function () {
   var Config = {
     apiKey: "AIzaSyCme_0cj2L8y_4z_MzOXS_ZEQLcR_gnzPA",
     authDomain: "train-schedule-ef43d.firebaseapp.com",
@@ -6,7 +6,7 @@ $(document).ready(function() {
     projectId: "train-schedule-ef43d",
     storageBucket: "train-schedule-ef43d.appspot.com",
     messagingSenderId: "427439336537",
-    appId: "1:427439336537:web:d8b38151769b8359099548"
+    appId: "1:427439336537:web:d8b38151769b8359099548",
   };
   // Initialize Firebase
   firebase.initializeApp(Config);
@@ -15,7 +15,7 @@ $(document).ready(function() {
   var destination = "";
   var frequency = "";
   var time = "";
-  $("#addTrain").on("click", function(event) {
+  $("#addTrain").on("click", function (event) {
     event.preventDefault();
 
     (train = $("#trainInput").val()),
@@ -27,7 +27,7 @@ $(document).ready(function() {
       train: train,
       destination: destination,
       frequency: frequency,
-      time: time
+      time: time,
     });
 
     // database.ref("user").on("value", function(snapshot) {
@@ -36,20 +36,12 @@ $(document).ready(function() {
     // });
   });
 
-  $("#addTrain").on("click", function() {
+  $("#addTrain").on("click", function () {
     // Append the new row to the table
-    var train = $("#trainInput")
-      .val()
-      .trim();
-    var destination = $("#destinationInput")
-      .val()
-      .trim();
-    var frequency = $("#frequencyInput")
-      .val()
-      .trim();
-    var time = $("#timeInput")
-      .val()
-      .trim();
+    var train = $("#trainInput").val().trim();
+    var destination = $("#destinationInput").val().trim();
+    var frequency = $("#frequencyInput").val().trim();
+    var time = $("#timeInput").val().trim();
     var date = new Date();
     var currentTime = date.getMinutes();
     var minsAway = currentTime - frequency;
@@ -62,18 +54,12 @@ $(document).ready(function() {
     );
     // $("tbody").append(trainRow);
 
-    // console.log(date);
-    // console.log(currentTime);
+    console.log(date);
+    console.log(currentTime);
   });
   database.ref().on(
     "child_added",
-    function(childSnapshot) {
-      // Log everything that's coming out of snapshot
-      // console.log(childSnapshot.val().train);
-      // console.log(childSnapshot.val().destination);
-      // console.log(childSnapshot.val().frequency);
-      // console.log(childSnapshot.val().time);
-      // console.log(childSnapshot.val().minsAway);
+    function (childSnapshot) {
       var trainRow = $("<tr>").append(
         $("<td>").text(childSnapshot.val().train),
         $("<td>").text(childSnapshot.val().destination),
@@ -85,7 +71,7 @@ $(document).ready(function() {
       $("tbody").append(trainRow);
     },
     // Handle the errors),
-    function(errorObject) {
+    function (errorObject) {
       console.log("Errors handled: " + errorObject.code);
     }
   );

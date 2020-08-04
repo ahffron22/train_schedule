@@ -1,101 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link href="style.css" rel=" stylesheet" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript" src="actions.js"></script>
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-      crossorigin="anonymous"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=PT+Serif&display=swap"
-      rel="stylesheet"
-    />
-    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
-  </head>
-  <body>
-    <div class="container">
-      <div id="header">
-        <header>Anytime is Train Time</header>
-      </div>
-      <table class="table table-striped table-dark">
-        <thead>
-          <tr>
-            <th id="trainName" scope="col">Train Name</th>
-            <th id="destination" scope="col">Destination</th>
-            <th id="frequency" scope="col">Frequency (mins)</th>
-            <th id="nextArrival" scope="col">Next Arrival</th>
-            <th id="minsAway" scope="col">Minutes Away</th>
-          </tr>
-        </thead>
-        <tbody id="tbody">
-          <tr>
-            <th scope="row">Trenton Express</th>
-            <td>Trenton</td>
-            <td>25</td>
-            <td>5:25</td>
-            <td>69</td>
-          </tr>
-          <tr>
-            <th scope="row">Detroit Express</th>
-            <td>Detroit</td>
-            <td>46</td>
-            <td>6:54</td>
-            <td>69</td>
-          </tr>
-          <tr>
-            <th scope="row">Pineapple Express</th>
-            <td>High Town</td>
-            <td>69</td>
-            <td>4:20</td>
-            <td>69</td>
-          </tr>
-        </tbody>
-      </table>
-      <form>
-        <div class="form-group">
-          <label for="exampleFormControlInput1">Train Name</label>
-          <input
-            placeholder="ex. Trenton Express"
-            type="text"
-            class="form-control"
-            id="trainInput"
-          />
-          <label for="exampleFormControlInput1">Destination</label>
-          <input
-            placeholder="ex. Detroit"
-            type="text"
-            class="form-control"
-            id="destinationInput"
-          />
-          <label for="exampleFormControlInput1"
-            >First Train Time (HH:mm-military time)</label
-          >
-          <input
-            placeholder="3:00am"
-            type="datetime"
-            class="form-control"
-            id="timeInput"
-          />
-          <label for="exampleFormControlInput1">Frequency (min)</label>
-          <input
-            placeholder="ex. 30"
-            type="number"
-            class="form-control"
-            id="frequencyInput"
-          />
-        </div>
-        <button type="button" id="addTrain">
-          Click to Add Train!
-        </button>
-      </form>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link href="style.css" rel=" stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript" src="actions.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+  <link href="https://fonts.googleapis.com/css?family=PT+Serif&display=swap" rel="stylesheet" />
+  <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <div id="header">
+      <header>Anytime is Train Time</header>
     </div>
-  </body>
+    <table class="table table-striped table-dark">
+      <thead>
+        <tr>
+          <th id="trainName" scope="col">Train Name</th>
+          <th id="destination" scope="col">Destination</th>
+          <th id="frequency" scope="col">Frequency (mins)</th>
+          <th id="nextArrival" scope="col">Next Arrival</th>
+          <th id="minsAway" scope="col">Minutes Away</th>
+        </tr>
+      </thead>
+      <tbody id="tbody">
+        <tr>
+          <th scope="row">Trenton Express</th>
+          <td>Trenton</td>
+          <td>25</td>
+          <td>5:25</td>
+          <td>27</td>
+        </tr>
+        <tr>
+          <th scope="row">Detroit Express</th>
+          <td>Detroit</td>
+          <td>46</td>
+          <td>6:54</td>
+          <td>50</td>
+        </tr>
+        <tr>
+          <th scope="row">Downtown Express</th>
+          <td>North Point</td>
+          <td>40</td>
+          <td>4:20</td>
+          <td>18</td>
+        </tr>
+      </tbody>
+    </table>
+    <form>
+      <div class="form-group">
+        <label for="exampleFormControlInput1">Train Name</label>
+        <input placeholder="ex. Trenton Express" type="text" class="form-control" id="trainInput" />
+        <label for="exampleFormControlInput1">Destination</label>
+        <input placeholder="ex. Detroit" type="text" class="form-control" id="destinationInput" />
+        <label for="exampleFormControlInput1">First Train Time (HH:mm-military time)</label>
+        <input placeholder="3:00am" type="datetime" class="form-control" id="timeInput" />
+        <label for="exampleFormControlInput1">Frequency (min)</label>
+        <input placeholder="ex. 30" type="number" class="form-control" id="frequencyInput" />
+      </div>
+      <button type="button" id="addTrain">
+        Click to Add Train!
+      </button>
+    </form>
+  </div>
+</body>
+
 </html>
